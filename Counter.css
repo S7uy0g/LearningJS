@@ -1,0 +1,24 @@
+body{
+    background: linear-gradient(to right, #B5C0D0, #CCD3CA);
+    display: flex;
+    justify-content: center;
+    font-family: Arial;
+}
+.Main{
+    background-color: linear-gradient(to right, #F5E8DD, #EED3D9);
+    border: 1px solid black;
+    width: 230px;
+    height: 200px;
+    text-align: center;
+}
+.Number{
+    font-size: 90px;
+    margin: 0;
+}
+.Controller{
+    border: none;
+}
+button{
+    border: none;
+    background-color: rgb(170, 248, 248);
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" name="Bachelor" id="Bachelor">
+    <label>Bachelor</label><br>
+    <input type="checkbox" name="Job" id="Job">
+    <label>Job</label><br>
+    <input type="checkbox" name="Married" id="Married">
+    <label>Married</label><br><br>
+
+
+    <input type="radio" name="gender" id="male" checked="true">
+    <label>Male</label><br>
+    <input type="radio" name="gender" id="female">
+    <label>Female</label><br>
+    <input type="radio" name="gender" id="others">
+    <label>Others</label><br>
+    <button id="submit" onclick="show()">Submit</button>
+
+    <p id="Result"></p>
+
+
+    <script>
+        function show(){
+            let Bachelor=document.getElementById("Bachelor").checked?"cleared":"not cleared";
+            let Job=document.getElementById("Job").checked?"have job":"does not have job";
+            let Married=document.getElementById("Married").checked?"is married":"is not married";
+            let Male=document.getElementById("male");
+            let Female=document.getElementById("female");
+            let Others=document.getElementById("others");
+            let Result=document.getElementById("Result");
+
+
+
+            switch(true){
+                case Male.checked:
+                    Result.textContent="You are Male who has "+Bachelor+" Bachelor and "+Job+" and "+Married;
+                    break;
+                case Female.checked:
+                    Result.textContent="You are Female who has "+Bachelor+" Bachelor and "+Job+" and "+Married;
+                    break;
+                case Others.checked:
+                    Result.textContent="You are part of LGBTQ+ who has "+Bachelor+" Bachelor and "+Job+" and "+Married;
+                    break;
+                default:
+                    Result.textContent="This will not show";
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
