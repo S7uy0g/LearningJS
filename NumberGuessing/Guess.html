@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *{
+        margin: 2px;
+        padding: 0;    
+    }
+    body{
+        background: linear-gradient(to right,white,rgb(131, 240, 131));
+        max-width: 600px;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor:default;
+    }
+    main{
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+        box-shadow: 1px 1px 20px black;
+    }
+    .title{
+        color: rgb(61, 120, 228);
+        margin: 20px 10px 20px 10px;
+        text-decoration: underline;
+        font-style: italic;
+    }
+    .guess{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    .guess>h1{
+        background-color: rgb(131, 240, 131);
+        padding: 10px 5px 10px 5px;
+        border: 1px solid black;
+        width: 200px;
+        text-align: center;
+    }
+    .check{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .check>input{
+        width: 100px;
+        height: 50px;
+        font-size: larger;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .check>button{
+        width: 70px;
+        height: 20px;
+        text-align: center;
+        font-size: small;
+    }
+    .reset{
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+    .reset>button{
+        background-color: rgb(240, 184, 184);
+        border: none;
+        width: 70px;
+        height: 30px;
+        text-align: center;
+        font-size: small;
+        border: 1px solid red;
+        transition: 0.15s ease-in-out;
+    }
+    .reset>button:hover{
+        opacity: 0.5;
+    }
+  </style>
+  <title>Guess Game</title>
+</head>
+<body>
+    <section></section>
+    <main>
+        <section class="title">
+            <h1>Number Guessing Game</h1>
+        </section>
+        <section class="guess">
+            <h1 id="guess">GUESS</h1>
+        </section>
+        <section class="check">
+            <h3>Guess Number</h3>
+            <p id="Hi"></p>
+            <input type="text" placeholder="Number" id="number">
+            <button onclick="check()" id="checkButton">CHECK</button>
+        </section>
+        <section class="reset">
+            <button>Back</button>
+            <button onclick="reset()">Reset</button>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                document.getElementById('checkButton').click();
+            }
+        });
+
+
+
+        let guessNumber=Math.floor(Math.random()*(100-1+1));
+        let count=3;
+        document.getElementById("Hi").textContent="Chance Remaining:"+count;
+        function check(){
+            let num=document.getElementById("number").value;
+            switch(true){
+                case parseInt(num)<guessNumber:
+                document.getElementById("guess").textContent="Wrong(Too Less)";
+                break;
+                case parseInt(num)>guessNumber:
+                document.getElementById("guess").textContent="Wrong(Too Much)";
+                break;
+                case guessNumber==parseInt(num):
+                document.getElementById("guess").textContent="Correct Guess";
+                document.getElementById("Hi").textContent="";
+                break;
+                default:
+                document.getElementById("guess").textContent="Input Number";
+                count=4;
+                document.getElementById("Hi").textContent="Chance Remaining:"+count;
+                break;
+            }
+            count=count-1;
+            document.getElementById("Hi").textContent="Chance Remaining:"+count;
+            if(count<1){
+                document.getElementById("guess").textContent="Game Over";
+                document.getElementById("Hi").textContent="Number Was:"+guessNumber;
+            }
+        }
+        function reset(){
+            location.reload();
+        }
+    </script>
+</body>
+</html>
