@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="content"></p>
+    <script>
+        let content=document.getElementById("content");
+        let name="Suyog Rai";
+        //name.charAt(0);//used to get character of an index
+        // name.trim();//trim whitespace
+        // name.toUpperCase();//Change to upper case
+        // name.repeat(4);//repeat string
+        // name.startsWith("Ab");//Check if the string starts with a given variable(endsWith())
+        // name.replaceAll(" ","");//Replace string (string,with)
+        // name.slice(0,name.indexOf(" "));//Slice string(from,to)
+
+
+        //Method Chaining
+        content.textContent=name.slice(0,name.indexOf(" ")).toUpperCase().repeat(2);
+    </script>
+</body>
+</html>
