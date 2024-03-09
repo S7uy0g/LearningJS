@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temprature Conversion</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        background: linear-gradient(to right,white,rgb(214, 52, 52));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 200px;
+    }
+    main{
+        background: linear-gradient(to right,rgb(214, 52, 52),white);
+        width: 350px;
+        text-align: center;
+        border-radius: 30px;
+        box-shadow: 1px 1px 10px black;
+    }
+    .Header{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .Main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .A,.B,.C{
+        margin-bottom: 5px;
+    }
+    .A>select,.A>input,.B>select,.B>input,.C>select,.C>input{
+        height: 30px;
+    }
+    .Footer>button{
+        width: 100px;
+        height: 30px;
+        margin-bottom: 20px;
+    }
+</style>
+<body>
+    <main>
+        <section class="Header">
+            <h1>Temprature Conversion</h1>
+        </section>
+        <section class="Main">
+            <section class="A">
+                <select name="From" id="From" onchange="convertB()">
+                    <option value="Celcius">Celcius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+                <input type="number" placeholder="Temprature" id="Temprature1" step="any" oninput="convertA()">
+            </section>
+            <p>To</p>
+            <section class="B">
+                <select name="To" id="To" onchange="convertA()">
+                    <option value="Celcius">Celcius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+                <input type="number" placeholder="Temprature" id="Temprature2" step="any" oninput="convertB()">
+            </section>
+        </section>
+    </main>
+    <script>
+        let a=document.getElementById("Temprature1");
+        let b=document.getElementById("Temprature2");
+        let c=document.getElementById("From");
+        let d=document.getElementById("To");
+        function C2K(temp1){
+            return parseFloat(temp1)+273.15;
+        }
+        function K2C(temp1){
+            return temp1-273.15;
+        }
+        function F2C(temp1){
+            return (temp1-32)*(5/9);
+        }
+        function C2F(temp1){
+            return temp1*(9/5)+32;
+        }
+        function F2K(temp1){
+            return (temp1-32)*(5/9)+273.15;
+        }
+        function K2F(temp1){
+            return (temp1-273.15)*(9/5)+32;
+        }
+        function convertA(){
+            let from=c.value;
+            let to=d.value;
+            let temp1=a.value;
+            let temp2=b.value;
+            let temp;
+            switch(true){
+                case from=="Celcius":
+                    switch(true){
+                        case to=="Fahrenheit":
+                        temp = C2F(temp1);
+                        b.value=temp;
+                        break;
+                        case to=="Kelvin":
+                        temp = C2K(temp1);
+                        b.value=temp;
+                        break;
+                        default:
+                            b.value=a.value;
+                            break;
+                    }
+                    break;
+                case from=="Fahrenheit":
+                    switch(true){
+                        case to=="Celcius":
+                        temp = F2C(temp1);
+                        b.value=temp;
+                        break;
+                        case to=="Kelvin":
+                        temp = F2K(temp1);
+                        b.value=temp;
+                        break;
+                        default:
+                        b.value=a.value;
+                        break;
+                    }
+                    break;
+                case from=="Kelvin":
+                    switch(true){
+                        case to=="Celcius":
+                        temp = K2C(temp1);
+                        b.value=temp;
+                        break;
+                        case to=="Fahrenheit":
+                        temp = K2F(temp1);
+                        b.value=temp;
+                        break;
+                        default:
+                        b.value=a.value;
+                        break;
+                    }
+                    break;
+                default:
+                    console.log("Hi");
+                    break;
+            }
+        }
+        function convertB(){
+            let from=c.value;
+            let to=d.value;
+            let temp1=a.value;
+            let temp2=b.value;
+            let temp;
+            switch(true){
+                case to=="Celcius":
+                    switch(true){
+                        case from=="Fahrenheit":
+                        temp = C2F(temp2);
+                        a.value=temp;
+                        break;
+                        case from=="Kelvin":
+                        temp = C2K(temp2);
+                        a.value=temp;
+                        break;
+                        default:
+                        a.value=b.value;
+                            break;
+                    }
+                    break;
+                case to=="Fahrenheit":
+                    switch(true){
+                        case from=="Celcius":
+                        temp = F2C(temp2);
+                        a.value=temp;
+                        break;
+                        case from=="Kelvin":
+                        temp = F2K(temp2);
+                        a.value=temp;
+                        break;
+                        default:
+                        a.value=b.value;
+                        break;
+                    }
+                    break;
+                case to=="Kelvin":
+                    switch(true){
+                        case from=="Celcius":
+                        temp = K2C(temp2);
+                        a.value=temp;
+                        break;
+                        case from=="Fahrenheit":
+                        temp = K2F(temp2);
+                        a.value=temp;
+                        break;
+                        default:
+                        a.value=b.value;
+                        break;
+                    }
+                    break;
+                default:
+                    console.log("Hi");
+                    break;
+            }
+        }
+        
+    </script>
+</body>
+</html>
