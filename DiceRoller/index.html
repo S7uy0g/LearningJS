@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiceRoller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <section class="Header">
+            <h1>Dice Roller</h1>
+        </section>
+        <section class="Main">
+            <label class="label">Number Of Dices</label>
+            <select name="Number" id="Number" class="Number">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            <button class="Roll" onclick="roll()">Roll</button>
+            <p class="values" id="values"></p>
+        </section>
+        <section class="Images" id="Images">
+        </section>
+    </main>
+    <script src="script.js" async defer></script>
+</body>
