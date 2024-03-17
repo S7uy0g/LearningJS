@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const num=[1,2,3,4,5];
+        const squares=num.map(square);
+        const cubes=num.map(cube);
+
+        function square(element){
+            return Math.pow(element,2);
+        }
+        function cube(element){
+            return Math.pow(element,3);
+        }
+
+        console.log(squares);
+        console.log(cubes);
+
+        const students=["Prapti","Rajya","Laxmi","Rana"];
+        const Upper=students.map(toUpper);
+        const Lower=students.map(toLower);
+
+        function toUpper(element){
+            return element.toUpperCase();
+        }
+        function toLower(element){
+            return element.toLowerCase();
+        }
+
+        console.log(Upper);
+        console.log(Lower);
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num=[1,2,3,4,5];
+        let even=num.filter(evenNum);
+        function evenNum(element){
+            return element%2===0;
+        }
+        console.log(even);
+
+
+        const students=["Prapti","Rajya","Laxmi","Rana"];
+        let student=students.filter(four);
+        function four(element){
+            return element.length<=5;
+        }
+        console.log(student);
+    </script>
+</body>
+</html>
