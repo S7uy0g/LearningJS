@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Main{
+            constructor(name,age){
+                this.name=name;
+                this.age=age;
+            }
+            set name(name){
+                if(typeof name==="string" && name.length>0){
+                    this._name=name;
+                }else{
+                    console.error("Error");
+                }
+            }
+            set age(age){
+                if(age>0){
+                    this._age=age;
+                }else{
+                    console.error("Error");
+                }
+            }
+            get name(){
+                return this._name;
+            }
+            get age(){
+                return this._age;
+            }
+        }
+        const id=new Main("Suyog",10);
+        console.log(id.name);
+        console.log(id.age);
+    </script>
+</body>
+</html>
