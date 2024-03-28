@@ -9,7 +9,6 @@ function Time(){
     let minute=Time.getMinutes().toString().padStart(2,0);
     let seconds=Time.getSeconds().toString().padStart(2,0);
     let ans=`${hours}:${minute}:${seconds}`;
-    console.log(ampmText.textContent);
     timeText.textContent=ans;
     ampmText.textContent=ampm;
 }
