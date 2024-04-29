@@ -33,9 +33,9 @@ main{
 .clock-container{
     background-color: rgb(46,57,58);
     width: 300px;
-    height: 120px;
+    height: 150px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
@@ -51,6 +51,7 @@ main{
     font-size: 1.8rem;
     font-weight: bolder;
     border-radius: 20px;
+    margin-bottom: 5px;
 }
 .ampm{
     font-size: 20px;
@@ -59,4 +60,14 @@ main{
     align-items:end;
     margin-left: 5px;
     padding-bottom: 3px;
+}
+button{
+    width: 70px;
+    color: white;
+    background-color:  rgb(69,78,84);
+}
+.clock-controller{
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-around;
 }
